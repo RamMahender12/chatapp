@@ -12,7 +12,7 @@ export const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     if (user) {
-      const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      const API_URL = import.meta.env.VITE_API_URL || "https://chatapp-avbw.onrender.com";
       const newSocket = io(API_URL);
       newSocket.emit("setup", user._id);
       setSocket(newSocket);
