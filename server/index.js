@@ -22,12 +22,6 @@ dotenv.config();
 const app = express();
 const server = http.createServer(app);
 
-const allowedOrigins = [
-  process.env.CLIENT_URL,
-  "http://localhost:5173",
-  "http://localhost:3000",
-].filter(Boolean);
-
 const io = new Server(server, {
   cors: {
     origin: true,
@@ -37,10 +31,8 @@ const io = new Server(server, {
 });
 
 app.use(cors({
-  origin: allowedOrigins,
+  origin: true,
   credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
 }));
 app.use(express.json());
 
