@@ -56,6 +56,7 @@ const MessagesPanel = ({ type, onClose }) => {
         onClick={(e) => e.stopPropagation()}
         className="bg-dark-800 border border-white/[0.04] rounded-2xl w-full max-w-lg mx-4 max-h-[80vh] flex flex-col overflow-hidden shadow-2xl"
       >
+        <div className="flex items-center justify-between px-5 py-4 border-b border-white/[0.04] flex-shrink-0">
           <div className="flex items-center gap-3">
             <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${isPinned ? "bg-accent-primary/15" : "bg-amber-500/15"}`}>
               {isPinned ? (
