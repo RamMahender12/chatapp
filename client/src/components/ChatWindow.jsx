@@ -615,10 +615,12 @@ const ChatWindow = ({ onBack }) => {
       {/* Pinned / Starred Messages Panel */}
       <AnimatePresence>
         {showOverlay && (
-          <MessagesPanel
-            type={showOverlay}
-            onClose={() => setShowOverlay(null)}
-          />
+          <div className="fixed inset-0 z-[9998] flex items-center justify-center bg-black/60 backdrop-blur-sm" onClick={() => setShowOverlay(null)}>
+            <MessagesPanel
+              type={showOverlay}
+              onClose={() => setShowOverlay(null)}
+            />
+          </div>
         )}
       </AnimatePresence>
     </div>
