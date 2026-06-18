@@ -221,6 +221,7 @@ const ChatWindow = ({ onBack }) => {
   };
 
   return (
+    <>
     <div className="flex-1 flex flex-col min-w-0 min-h-0 overflow-hidden bg-dark-950 relative"
     >
       {/* Subtle background pattern */}
@@ -611,19 +612,18 @@ const ChatWindow = ({ onBack }) => {
           />
         )}
       </AnimatePresence>
+    </div>
 
-      {/* Pinned / Starred Messages Panel */}
+      {/* Pinned / Starred Messages Panel - rendered outside overflow-hidden container */}
       <AnimatePresence>
         {showOverlay && (
-          <div className="fixed inset-0 z-[9998] flex items-center justify-center bg-black/60 backdrop-blur-sm" onClick={() => setShowOverlay(null)}>
-            <MessagesPanel
-              type={showOverlay}
-              onClose={() => setShowOverlay(null)}
-            />
-          </div>
+          <MessagesPanel
+            type={showOverlay}
+            onClose={() => setShowOverlay(null)}
+          />
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 };
 
